@@ -1,5 +1,5 @@
 const express = require("express")
-const router = express.router
+const router = express.Router()
 
 router.get('/home', (req, res)=>{
     res.send("home")
@@ -14,4 +14,4 @@ router.get('/faqs', (req, res)=>{
     res.send("faqs")
 })
 
-modules.exports = router
+module.exports = router
