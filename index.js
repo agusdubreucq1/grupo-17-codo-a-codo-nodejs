@@ -3,10 +3,11 @@ require("dotenv").config();
 const express = require("express")
 const mainRoutes = require("./src/routes/mainRoutes");
 const sequelize  = require("./src/models/conexion");
-const user = require('./src/models/user')
+const authRoute = require('./src/routes/authRoutes')
 
 const app = express()
 
+app.use('/', authRoute)
 app.use('/', mainRoutes)
 
 
