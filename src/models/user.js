@@ -21,3 +21,5 @@ User.beforeSave(async (user,option)=>{
 
     user.password = hash
 })
+
+module.exports = User
