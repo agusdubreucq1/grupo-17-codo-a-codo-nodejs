@@ -1,6 +1,6 @@
 const sequelize = require('./conexion');
 const { DataTypes } = require("sequelize");
-const { Categoria } = require("./categoria");
+const Categoria  = require("./categoria");
 
 const Producto = sequelize.define('Product', {
     nombre: {
