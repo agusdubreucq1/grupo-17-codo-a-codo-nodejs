@@ -9,6 +9,7 @@ router.get('/create', productController.getCreate)
 router.post('/create', productController.create)
 router.get('/:id', (req, res)=> {
 })
+router.delete('/:id', productController.delete)
 
 
 module.exports = router

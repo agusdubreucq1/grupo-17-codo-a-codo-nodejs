@@ -9,6 +9,7 @@ const productRoute = require('./src/routes/admin/productRoutes');
 const sequelize  = require("./src/models/conexion");
 
 const session = require('cookie-session')
+const method_override = require("method-override")
 
 
 const isLogin = (req, res, next)=>{
@@ -21,6 +22,8 @@ const isLogin = (req, res, next)=>{
 
 
 const app = express()
+
+app.use(method_override("_method"));
 app.use(session({
     keys: ['dhcndjscn', 'jdxnjdsbsjh']
 }))
