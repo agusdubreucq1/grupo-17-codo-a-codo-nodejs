@@ -1,0 +1,11 @@
+const sequelize = require('./conexion');
+const { DataTypes } = require("sequelize");
+
+const Categoria = sequelize.define('Category', {
+    nombre: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }
+})
+
+module.exports = Categoria
