@@ -8,9 +8,22 @@ const productRoute = require('./src/routes/admin/productRoutes');
 
 const sequelize  = require("./src/models/conexion");
 
+const session = require('cookie-session')
+
+
+const isLogin = (req, res, next)=>{
+    if(req.session.userId){
+        next()
+    }else{
+        res.redirect('/login')
+    }
+}
 
 
 const app = express()
+app.use(session({
+    keys: ['dhcndjscn', 'jdxnjdsbsjh']
+}))
 app.use(express.urlencoded({ extended: false }));
 
 app.set('view engine', 'ejs')
@@ -21,7 +34,7 @@ app.set('views', carpeta_views)
 app.use('/', authRoute)
 app.use('/', mainRoutes)
 
-app.use('/admin/products', productRoute)
+app.use('/admin/products',isLogin, productRoute)
 
 
 const PORT = process.env.PORT || 3000
