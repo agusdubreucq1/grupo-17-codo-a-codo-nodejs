@@ -5,10 +5,13 @@ const router = express.Router()
 
 
 router.get('/', productController.index)
+
 router.get('/create', productController.getCreate)
 router.post('/create', productController.create)
-router.get('/:id', (req, res)=> {
-})
+
+router.get('/edit/:id', productController.getEdit)
+router.put('/:id', productController.edit)
+
 router.delete('/:id', productController.delete)
 
 

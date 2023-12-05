@@ -15,6 +15,12 @@
     <input name="nombre"></input>
     <label>Precio</label>
     <input name="precio"></input>
+    <label>Categoria</label>
+    <select name="categoria">
+        <% categorias.forEach((categoria)=>{ %>
+            <option value="<%= categoria.id %>"><%= categoria.nombre %></option>
+       <% }) %>
+    </select>
 
     <button>Crear</button>
 </form>
