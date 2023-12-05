@@ -5,6 +5,7 @@ const path = require("path")
 const mainRoutes = require("./src/routes/mainRoutes");
 const authRoute = require('./src/routes/authRoutes');
 const productRoute = require('./src/routes/admin/productRoutes');
+const categoriaRoute = require('./src/routes/admin/categoriaRoutes');
 
 const sequelize  = require("./src/models/conexion");
 
@@ -38,6 +39,7 @@ app.use('/', authRoute)
 app.use('/', mainRoutes)
 
 app.use('/admin/products',isLogin, productRoute)
+app.use('/admin/categorias', isLogin, categoriaRoute)
 
 
 const PORT = process.env.PORT || 3000
