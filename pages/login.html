@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FunkoShop</title>
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="../css/admin.css" />
+    <link rel="stylesheet" href="../responsive.css" />
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link
+      rel="shortcut icon"
+      href="../img/branding/isotype.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <header class="header" id="nav-active">
+      <nav class="nav">
+        <picture class="logo">
+          <a href="../index.html">
+            <img
+              src="../img/branding/logo_light_horizontal.svg"
+              alt="Logo de la marca"
+            />
+          </a>
+        </picture>
+        <ul class="nav-menu" id="nav-list">
+          <li class="nav-menu-item">
+            <a href="shop.html" class="nav-menu-link nav-link">VER TIENDA</a>
+          </li>
+          <li class="nav-menu-item">
+            <a href="admin.html" class="nav-menu-link nav-link">ADMIN</a>
+          </li>
+          <li class="nav-menu-item">
+            <a href="../index.html" class="nav-menu-link nav-link">SALIR</a>
+          </li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="login-main">
+        <div class="login-tittle">INGRESAR A MI CUENTA</div>
+        <div>
+          <form class="login-form">
+            <div class="user-register">
+              <label for="Email">Email:</label>
+              <input
+                type="text"
+                class="borde_rojo input_texto input-login"
+                placeholder="johndoe@correo.com"
+               />
+            </div>
+            <div class="password-register">
+              <label class="password-field" for="password">Contraseña:</label>
+              <input
+                type="password"
+                class="borde_rojo input_texto input-login"
+                placeholder="********"
+              />
+            </div>
+            <div class="actions-login">
+          <a type="submit" href="./admin.html" class="boton-login">Ingresar</a>
+          <div class="rememberme">
+            <input type="checkbox" class="checkbox-login" />
+            <label class="rememberme-label">Recordarme</label>
+          </div>
+        </div>
+          </form>
+        </div>
+        <a href="#" class="password-lost">Olvidé mi contraseña</a>
+      </div>
+    </main>
+    <footer class="footer">
+      <nav class="footer-navbar">
+        <ul class="footer-link">
+          <li class="footer-li-item">
+            <a href="./shop.html" class="nav-menu-link nav-link">SHOP</a>
+          </li>
+          <li class="footer-li-item">
+            <a href="./register.html" class="nav-menu-link nav-link"
+              >REGISTRARSE</a>
+          </li>
+          <li class="footer-li-item">
+            <a href="./contact.html" class="nav-menu-link nav-link">CONTACTO</a>
+          </li>
+          <li class="footer-li-item">
+            <a href="./login.html" class="nav-menu-link nav-link">LOGIN</a>
+          </li>
+        </ul>
+        <img
+          id="isotype"
+          src="../img/branding/isotype.svg"
+          alt="Logo de la marca"
+        />
+      </nav>
+      <p id="footer-p">All rights reserved 2023 - Funkoshop &copy</p>
+    </footer>
+    <script src="../index.js"></script>
+  </body>
+</html>
