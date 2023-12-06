@@ -25,6 +25,7 @@ const isLogin = (req, res, next)=>{
 const app = express()
 
 app.use(method_override("_method"));
+app.use(express.static(path.join(__dirname, "/public")));
 app.use(session({
     keys: ['dhcndjscn', 'jdxnjdsbsjh']
 }))

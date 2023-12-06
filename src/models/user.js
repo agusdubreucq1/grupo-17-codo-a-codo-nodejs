@@ -4,6 +4,12 @@ const { DataTypes } = require("sequelize");
 const bycript = require("bcryptjs")
 
 const User = sequelize.define('User', {
+    name:{
+        type: DataTypes.STRING,
+    },
+    lastname:{
+        type: DataTypes.STRING,
+    },
     email: {
         type: DataTypes.STRING,
         unique: true,

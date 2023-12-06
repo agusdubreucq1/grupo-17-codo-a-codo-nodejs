@@ -6,7 +6,7 @@ const authController = {
   register: (req, res) => {
     res.render("auth/register");
   },
-  postRegister: (req, res) => {
+  postRegister: async (req, res) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
@@ -16,10 +16,10 @@ const authController = {
       });
     }
 
+    const { email, password, name, lastname  } = req.body;
     try {
-      const { email, password } = req.body;
-      const user = User.create({ email, password });
-      res.send("registrado")
+      await User.create({ email, password, name, lastname });
+      res.redirect("/login")
     } catch (e) {
       res.send(e);
     }

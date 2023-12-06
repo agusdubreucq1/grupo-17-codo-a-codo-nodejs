@@ -33,11 +33,13 @@ const registerValidations = [
       minLength: 6,
       minLowercase: 1,
       minUppercase: 1,
-      minSymbols: 1,
     })
-    .withMessage("La contraseña debe tener ...")
+    .withMessage(`La contraseña debe tener :
+     -una mayuscula
+      -una minuscula
+       -minimo 6 letras`)
     .bail()
-    .custom((value, { req }) => value === req.body.password_confirmation)
+    .custom((value, { req }) => value === req.body.password_repeat)
     .withMessage("Las contraseñas no coinciden"),
 ];
 

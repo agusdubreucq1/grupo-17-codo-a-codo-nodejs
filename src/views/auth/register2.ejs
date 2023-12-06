@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+  </head>
+  <body>
+    <% if (typeof errors != 'undefined') { %>
+        <ul>
+          <% errors.forEach(error => { %>
+          <li><%= error.msg %></li>
+          <% }) %>
+        </ul>
+        <% } %>
+    <div>
+      <h1>Register</h1>
+      <form method="post" action="/register">
+        <label>email</label>
+        <input type="text" name="email" value="<%= typeof values != 'undefined' ? values.email : '' %>" />
+        <label>contraseña</label>
+        <input type="password" name="password" />
+        <label for="password_confirmation">Confirmar contraseña</label>
+        <input
+          type="password"
+          id="password_confirmation"
+          name="password_confirmation"
+        />
+        <button>Registrar</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,4 +1,5 @@
 const Categoria = require("../../models/categoria");
+const Licencia = require("../../models/licencia");
 const Producto = require("../../models/producto");
 // const Product = require("../../models/producto");
 
@@ -21,8 +22,8 @@ const productController = {
     }
   },
   create: async (req, res) => {
-    const { nombre, precio, categoria } = req.body;
-    const newProduct = await Producto.create({ nombre, precio, CategoryId: categoria });
+    const { nombre, precio, categoria, SKU, descuento, stock, cuotas } = req.body;
+    const newProduct = await Producto.create({ nombre, precio, CategoryId: categoria, SKU, descuento, stock, cuotas });
     // res.render("inicio")
     res.redirect("/admin/products");
   },
@@ -30,9 +31,10 @@ const productController = {
   getCreate: async (req, res) => {
     try {
       const categorias = await Categoria.findAll();
+      const licencias = await Licencia.findAll();
       console.log(categorias)
       console.log("Rendering create");
-      res.render("admin/productos/create", {categorias: categorias});
+      res.render("admin/productos/create", {categorias: categorias, licencias: licencias});
     } catch (e) {
       console.log(e);
       res.send(e);
