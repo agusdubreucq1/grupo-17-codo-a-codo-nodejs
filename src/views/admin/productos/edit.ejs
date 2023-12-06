@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FunkoShop</title>
-    <link rel="stylesheet" href="../index.css" />
-    <link rel="stylesheet" href="../css/admin.css" />
-    <link rel="stylesheet" href="../responsive.css">
-    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/variables.css" />
     <link
       rel="shortcut icon"
-      href="../img/branding/isotype.svg"
+      href="/img/branding/isotype.svg"
       type="image/x-icon"
     />
   </head>
@@ -18,22 +18,22 @@
     <header class="header" id="nav-active">
       <nav class="nav">
         <picture class="logo">
-          <a href="../index.html">
+          <a href="/">
             <img
-              src="../img/branding/logo_light_horizontal.svg"
+              src="/img/branding/logo_light_horizontal.svg"
               alt="Logo de la marca"
             />
           </a>
         </picture>
         <ul class="nav-menu" id="nav-list">
           <li class="nav-menu-item">
-            <a href="shop.html" class="nav-menu-link nav-link">VER TIENDA</a>
+            <a href="/pages/shop.html" class="nav-menu-link nav-link">VER TIENDA</a>
           </li>
           <li class="nav-menu-item">
-            <a href="contact.html" class="nav-menu-link nav-link">ADMIN</a>
+            <a href="/pages/contact.html" class="nav-menu-link nav-link">ADMIN</a>
           </li>
           <li class="nav-menu-item">
-            <a href="login.html" class="nav-menu-link nav-link">SALIR</a>
+            <a href="/login" class="nav-menu-link nav-link">SALIR</a>
           </li>
         </ul>
         <div class="menu-toggle" id="mobile-menu">
@@ -47,18 +47,20 @@
       <h1>EDITAR ITEM</h1>
       <br />
       <br />
-      <form action="">
+      <form method="post"
+      action="/admin/products/<%= product.id %>?_method=PUT">
         <div class="renglon1">
           <label for="categoria">Categoria:</label>
-          <select name="" id="categoria">
-            <option value="value1" selected>Figuras</option>
+          <select name="categoria" id="categoria">
+            <% categorias.forEach((categoria)=>{ %>
+              <option value="<%= categoria.id %>" <%= product.CategoryId === categoria.id ? 'selected' : '' %>><%= categoria.nombre %></option>
+         <% }) %>
           </select>
           <label for="licencia">Licencia:</label>
-          <select name="" id="licencia">
-            <option value="value1" selected>Naruto Shippuden</option>
-            <option value="value2">Star Wars</option>
-            <option value="value3">Pokemon</option>
-            <option value="value4">Harry Potter</option>
+          <select name="licencia" id="licencia">
+            <% licencias.forEach((licencia)=>{ %>
+              <option value="<%= licencia.id %>" <%= product.LicenciaId === licencia.id ? 'selected' : '' %>><%= licencia.nombre %></option>
+         <% }) %>
           </select>
         </div>
         <br />
@@ -68,14 +70,15 @@
           <input
             class="borde_rojo input_texto input_grande"
             placeholder="Escribe norma del producto"
-            value="Kakashi Hatake Shippuden Saga"
+            value="<%= product.nombre %>"
+            name="nombre"
           />
         </div>
         <br />
         <br />
         <div class="3renglon">
-          <textarea name="" id="" placeholder="Descripción del producto">
-Figura Funko coleccionable de Kakashi Hatake de la saga Naruto Shipudden invocando chidori.
+          <textarea name="descripcion" id="" placeholder="Descripción del producto">
+            <%= product.descripcion %>
           </textarea>
         </div>
         <br />
@@ -85,24 +88,25 @@ Figura Funko coleccionable de Kakashi Hatake de la saga Naruto Shipudden invocan
           <input
             type="text"
             class="borde_rojo input_texto input_mediano"
-            name=""
-            id=""
+            name="SKU"
             placeholder="SSK111AB001"
-            value="NAR001012"
+            value="<%= product.SKU %>"
           />
           <label for="">Precio:</label>
           <input
             type="number"
             class="borde_rojo input_texto input_mediano"
             placeholder="$ 0.000,00"
-            value="1799"
+            value="<%= product.precio %>"
+            name="precio"
           />
           <label for="">Stock:</label>
           <input
             type="number"
             class="borde_rojo input_texto input_chico"
             placeholder="0"
-            value="10"
+            value="<%= product.stock %>"
+            name="stock"
           />
         </div>
         <br />
@@ -113,17 +117,15 @@ Figura Funko coleccionable de Kakashi Hatake de la saga Naruto Shipudden invocan
             type="number"
             class="borde_rojo input_texto input_chico"
             placeholder="0%"
-            value="10"
+            value="<%= product.descuento %>"
+            name="descuento"
           />
           <label for="">Cuotas:</label>
-          <select name="" id="">
-            <option value="" disabled selected hidden>
-              3 Cuotas sin interes
-            </option>
-            <option value="value1">3 Cuotas sin interes</option>
-            <option value="value2" selected>6 Cuotas sin interes</option>
-            <option value="value3">12 Cuotas sin interes</option>
-            <option value="value4">18 Cuotas sin interes</option>
+          <select name="cuotas" id="">
+            <option value="3" <%= product.cuotas === 3 ? 'selected' : '' %>>3 Cuotas sin interes</option>
+            <option value="6" <%= product.cuotas === 6 ? 'selected' : '' %>>6 Cuotas sin interes</option>
+            <option value="12" <%= product.cuotas === 12 ? 'selected' : '' %>>12 Cuotas sin interes</option>
+            <option value="18" <%= product.cuotas === 18 ? 'selected' : '' %>>18 Cuotas sin interes</option>
           </select>
         </div>
         <br />
@@ -138,7 +140,7 @@ Figura Funko coleccionable de Kakashi Hatake de la saga Naruto Shipudden invocan
           <div class="imagenesYTexto">
             <picture>
               <img
-                src="../img/star-wars/baby-yoda-1.webp"
+                src="/img/star-wars/baby-yoda-1.webp"
                 class="imagenesfiguras borde_rojo"
               />
             </picture>
@@ -147,7 +149,7 @@ Figura Funko coleccionable de Kakashi Hatake de la saga Naruto Shipudden invocan
           <div class="imagenesYTexto">
             <picture>
               <img
-                src="../img/star-wars/baby-yoda-box.webp"
+                src="/img/star-wars/baby-yoda-box.webp"
                 class="imagenesfiguras borde_rojo"
                 alt=""
               />
@@ -164,28 +166,28 @@ Figura Funko coleccionable de Kakashi Hatake de la saga Naruto Shipudden invocan
       <nav class="footer-navbar">
         <ul class="footer-link">
           <li class="footer-li-item">
-            <a href="./shop.html" class="nav-menu-link nav-link">SHOP</a>
+            <a href="/pages/shop.html" class="nav-menu-link nav-link">SHOP</a>
           </li>
           <li class="footer-li-item">
-            <a href="./register.html" class="nav-menu-link nav-link"
+            <a href="/register" class="nav-menu-link nav-link"
               >REGISTRARSE</a
             >
           </li>
           <li class="footer-li-item">
-            <a href="./contact.html" class="nav-menu-link nav-link">CONTACTO</a>
+            <a href="/pages/contact.html" class="nav-menu-link nav-link">CONTACTO</a>
           </li>
           <li class="footer-li-item">
-            <a href="./login.html" class="nav-menu-link nav-link">LOGIN</a>
+            <a href="/login" class="nav-menu-link nav-link">LOGIN</a>
           </li>
         </ul>
         <img
           id="isotype"
-          src="../img/branding/isotype.svg"
+          src="/img/branding/isotype.svg"
           alt="Logo de la marca"
         />
       </nav>
       <p id="footer-p">All rights reserved 2023 - Funkoshop &copy</p>
     </footer>
-    <script src="../index.js"></script>
+    <script src="/js/index.js"></script>
   </body>
 </html>

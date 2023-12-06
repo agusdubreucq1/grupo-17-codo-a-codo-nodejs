@@ -22,8 +22,8 @@ const productController = {
     }
   },
   create: async (req, res) => {
-    const { nombre, precio, categoria, SKU, descuento, stock, cuotas } = req.body;
-    const newProduct = await Producto.create({ nombre, precio, CategoryId: categoria, SKU, descuento, stock, cuotas });
+    const { nombre, descripcion,  precio, categoria, SKU, descuento, stock, cuotas } = req.body;
+    const newProduct = await Producto.create({ nombre, precio, CategoryId: categoria, SKU, descuento, stock, cuotas, descripcion });
     // res.render("inicio")
     res.redirect("/admin/products");
   },
@@ -54,7 +54,8 @@ const productController = {
         }
       })
       const categorias = await Categoria.findAll()
-      res.render("admin/productos/edit", {product:product, categorias: categorias})
+      const licencias = await Licencia.findAll()
+      res.render("admin/productos/edit", {product:product, categorias: categorias, licencias: licencias})
     }catch(e){
       console.log(e)
       res.send("error al editar")
@@ -62,12 +63,19 @@ const productController = {
   },
   edit: async (req, res)=>{
     const { id }= req.params
-    const { nombre, categoria, precio } = req.body;
+    const { nombre, precio, categoria, SKU, descuento, stock, cuotas, descripcion } = req.body;
+    console.log('\n\n\n valores del edit:\n\n',nombre, precio, categoria, SKU, descuento, stock, cuotas, descripcion)
     try{
       await Producto.update({
         nombre: nombre,
         precio: precio,
-        CategoryId: categoria
+        CategoryId: categoria,
+        SKU: SKU,
+        cuotas: cuotas,
+        descuento: descuento,
+        stock: stock,
+        descripcion: descripcion
+
       },{
         where:{
           id:id
