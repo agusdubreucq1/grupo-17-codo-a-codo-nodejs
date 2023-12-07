@@ -38,7 +38,7 @@ const authController = {
         return res.send("Contraseña incorrecta");
       }else{
         req.session.userId = user.id;
-        res.redirect("/");
+        res.redirect("/admin/products");
       }
     } catch (e) {
       res.send("Error al iniciar sesion");

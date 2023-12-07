@@ -15,34 +15,7 @@
     />
   </head>
   <body>
-    <header class="header" id="nav-active">
-      <nav class="nav">
-        <picture class="logo">
-          <a href="/">
-            <img
-              src="../img/branding/logo_light_horizontal.svg"
-              alt="Logo de la marca"
-            />
-          </a>
-        </picture>
-        <ul class="nav-menu" id="nav-list">
-          <li class="nav-menu-item">
-            <a href="/pages/shop.html" class="nav-menu-link nav-link">VER TIENDA</a>
-          </li>
-          <li class="nav-menu-item">
-            <a href="/admin/products" class="nav-menu-link nav-link">ADMIN</a>
-          </li>
-          <li class="nav-menu-item">
-            <a href="/logout" class="nav-menu-link nav-link">SALIR</a>
-          </li>
-        </ul>
-        <div class="menu-toggle" id="mobile-menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-      </nav>
-    </header>
+    <%- include('../partials/headerAdmin') %>
     <main>
       <div class="login-main">
         <div class="login-tittle">INGRESAR A MI CUENTA</div>
@@ -78,32 +51,7 @@
         <a href="#" class="password-lost">Olvidé mi contraseña</a>
       </div>
     </main>
-    <footer class="footer">
-      <nav class="footer-navbar">
-        <ul class="footer-link">
-          <li class="footer-li-item">
-            <a href="/pages/shop.html" class="nav-menu-link nav-link">SHOP</a>
-          </li>
-          <li class="footer-li-item">
-            <a href="/register" class="nav-menu-link nav-link"
-              >REGISTRARSE</a
-            >
-          </li>
-          <li class="footer-li-item">
-            <a href="/pages/contact.html" class="nav-menu-link nav-link">CONTACTO</a>
-          </li>
-          <li class="footer-li-item">
-            <a href="/login" class="nav-menu-link nav-link">LOGIN</a>
-          </li>
-        </ul>
-        <img
-          id="isotype"
-          src="/img/branding/isotype.svg"
-          alt="Logo de la marca"
-        />
-      </nav>
-      <p id="footer-p">All rights reserved 2023 - Funkoshop &copy</p>
-    </footer>
+    <%- include('../partials/footerAdmin') %>
     <script src="/js/index.js"></script>
   </body>
 </html>

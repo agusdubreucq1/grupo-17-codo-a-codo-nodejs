@@ -1,5 +1,7 @@
 const express = require('express')
 const productController = require('../../controllers/admin/productController')
+const multer = require("multer")
+const upload = multer({ storage: multer.memoryStorage()})
 
 const router = express.Router()
 
@@ -7,10 +9,10 @@ const router = express.Router()
 router.get('/', productController.index)
 
 router.get('/create', productController.getCreate)
-router.post('/create', productController.create)
+router.post('/create', upload.array('imagenes', 2), productController.create)
 
 router.get('/edit/:id', productController.getEdit)
-router.put('/:id', productController.edit)
+router.put('/:id', upload.array('imagenes', 2), productController.edit)
 
 router.delete('/:id', productController.delete)
 

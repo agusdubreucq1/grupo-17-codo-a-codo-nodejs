@@ -22,7 +22,8 @@
       <br />
       <form 
       method="post",
-    action="/admin/products/create">
+    action="/admin/products/create"
+    enctype="multipart/form-data">
         <div class="renglon1">
           <label for="categoria">Categoria:</label>
           <select name="categoria" id="categoria">
@@ -108,7 +109,7 @@
         <br />
         <div class="6renglon">
           <label for="">Imagenes:</label>
-          <input type="file" name="" id="" />
+          <input type="file" name="imagenes" id="" multiple />
         </div>
         <br />
         <br />

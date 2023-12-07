@@ -17,7 +17,6 @@ const registerValidations = [
           });
 
           if (user) {
-            console.log(user);
             return reject();
           } else {
             return resolve();

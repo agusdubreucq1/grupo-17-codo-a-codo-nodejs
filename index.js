@@ -33,7 +33,6 @@ app.use(express.urlencoded({ extended: false }));
 
 app.set('view engine', 'ejs')
 let carpeta_views = path.resolve(__dirname, 'src','views')
-console.log("carpeta de views: ", carpeta_views)
 app.set('views', carpeta_views)
 
 app.use('/', authRoute)
