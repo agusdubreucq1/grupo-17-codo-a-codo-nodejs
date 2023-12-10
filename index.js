@@ -5,6 +5,7 @@ const path = require("path")
 const mainRoutes = require("./src/routes/mainRoutes");
 const authRoute = require('./src/routes/authRoutes');
 const productRoute = require('./src/routes/admin/productRoutes');
+const categoriaRoute = require('./src/routes/admin/categoriaRoutes');
 
 const sequelize  = require("./src/models/conexion");
 
@@ -24,6 +25,7 @@ const isLogin = (req, res, next)=>{
 const app = express()
 
 app.use(method_override("_method"));
+app.use(express.static(path.join(__dirname, "/public")));
 app.use(session({
     keys: ['dhcndjscn', 'jdxnjdsbsjh']
 }))
@@ -31,13 +33,13 @@ app.use(express.urlencoded({ extended: false }));
 
 app.set('view engine', 'ejs')
 let carpeta_views = path.resolve(__dirname, 'src','views')
-console.log("carpeta de views: ", carpeta_views)
 app.set('views', carpeta_views)
 
 app.use('/', authRoute)
 app.use('/', mainRoutes)
 
 app.use('/admin/products',isLogin, productRoute)
+app.use('/admin/categorias', isLogin, categoriaRoute)
 
 
 const PORT = process.env.PORT || 3000

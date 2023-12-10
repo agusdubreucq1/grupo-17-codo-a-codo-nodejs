@@ -1,22 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Crear Producto</h1>
-    <form
-    method="post",
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FunkoShop</title>
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link
+      rel="shortcut icon"
+      href="/img/branding/isotype.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <%- include('../../partials/headerAdmin') %>
+    <main class="main_edit">
+      <h1>CREAR NUEVO ITEM</h1>
+      <br />
+      <br />
+      <form 
+      method="post",
     action="/admin/products/create"
-    >
-    <label>Nombre</label>
-    <input name="nombre"></input>
-    <label>Precio</label>
-    <input name="precio"></input>
-
-    <button>Crear</button>
-</form>
-</body>
+    enctype="multipart/form-data">
+        <div class="renglon1">
+          <label for="categoria">Categoria:</label>
+          <select name="categoria" id="categoria">
+            <option value="" disabled selected hidden>Seleccionar</option>
+            <% categorias.forEach((categoria)=>{ %>
+            <option value="<%= categoria.id %>"><%= categoria.nombre %></option>
+            <% }) %>
+          </select>
+          <label for="licencia">Licencia:</label>
+          <select name="licencia" id="licencia">
+            <option value="" disabled selected hidden>Seleccionar</option>
+            <% licencias.forEach((licencia)=>{ %>
+              <option value="<%= licencia.id %>"><%= licencia.nombre %></option>
+         <% }) %>
+          </select>
+        </div>
+        <br />
+        <br />
+        <div class="renglon2">
+          <label for="">Nombre del producto:</label>
+          <input
+            class="borde_rojo input_texto input_grande"
+            placeholder="Kakashi Hatake Shippuden Saga"
+            name="nombre"
+          />
+        </div>
+        <br />
+        <br />
+        <div class="3renglon">
+          <textarea
+            name="descripcion"
+            id=""
+            placeholder="Descripción del producto"
+          ></textarea>
+        </div>
+        <br />
+        <br />
+        <div class="4renglon">
+          <label for="">SKU:</label>
+          <input
+            type="text"
+            class="borde_rojo input_texto input_mediano"
+            name="SKU"
+            id=""
+            placeholder="SSK111AB001"
+          />
+          <label for="">Precio:</label>
+          <input
+            type="number"
+            class="borde_rojo input_texto input_mediano"
+            placeholder="$ 0.000,00"
+            name="precio"
+          />
+          <label for="">Stock:</label>
+          <input
+            type="number"
+            class="borde_rojo input_texto input_chico"
+            placeholder="0"
+            name="stock"
+          />
+        </div>
+        <br />
+        <br />
+        <div class="5renglon">
+          <label for="">Descuento</label>
+          <input
+            type="number"
+            class="borde_rojo input_texto input_chico"
+            placeholder="0%"
+            name="descuento"
+          />
+          <label for="">Cuotas:</label>
+          <select name="cuotas" id="">
+            <option value="3" selected>
+              3 Cuotas sin interes
+            </option>
+            <option value="6">6 Cuotas sin interes</option>
+            <option value="12">12 Cuotas sin interes</option>
+            <option value="18">18 Cuotas sin interes</option>
+          </select>
+        </div>
+        <br />
+        <br />
+        <div class="6renglon">
+          <label for="">Imagenes:</label>
+          <input type="file" name="imagenes" id="" multiple />
+        </div>
+        <br />
+        <br />
+        <div class="7renglon">
+          <input
+            type="submit"
+            class="boton_rojo"
+            value="Agregar Producto"
+            class="b"
+          />
+          <input type="reset" class="boton_rojo" value="Limpiar" />
+        </div>
+      </form>
+    </main>
+    <%- include('../../partials/footerAdmin') %>
+    <script src="/js/index.js"></script>
+  </body>
 </html>

@@ -6,14 +6,16 @@
     <title>Document</title>
   </head>
   <body>
+    <%- include('../../partials/headerAdmin') %>
     <h1>Lista de productos</h1>
     <button><a href="/admin/products/create"> crear producto</a></button>
     <% products.forEach((product) => { %>
     <div>
       <p><%= product.nombre %></p>
       <p><%= product.precio %></p>
+      <p><%= product.Category.nombre %></p>
       <button>
-        <a href="/products/<%= product.id %>?method=PUT">editar</a>
+        <a href="/admin/products/edit/<%= product.id %>">editar</a>
       </button>
       <form
         class="form-delete"

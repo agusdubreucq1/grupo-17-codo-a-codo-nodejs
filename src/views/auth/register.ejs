@@ -1,33 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
-  </head>
-  <body>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FunkoShop</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <link rel="stylesheet" href="/css/variables.css" />
+
+  <link rel="shortcut icon" href="/img/branding/isotype.svg" type="image/x-icon" />
+</head>
+
+<body>
+  <%- include('../partials/headerAdmin') %>
+  <main class="main-register">
+    <h1 class="title-register">CREA TU CUENTA</h1>
+    <p class="complete-register">
+      Completa el formulario para ser parte del mundo de los Funkos
+    </p>
     <% if (typeof errors != 'undefined') { %>
-        <ul>
-          <% errors.forEach(error => { %>
-          <li><%= error.msg %></li>
-          <% }) %>
-        </ul>
-        <% } %>
-    <div>
-      <h1>Register</h1>
-      <form method="post" action="/register">
-        <label>email</label>
-        <input type="text" name="email" value="<%= typeof values != 'undefined' ? values.email : '' %>" />
-        <label>contraseña</label>
-        <input type="password" name="password" />
-        <label for="password_confirmation">Confirmar contraseña</label>
-        <input
-          type="password"
-          id="password_confirmation"
-          name="password_confirmation"
-        />
-        <button>Registrar</button>
+      <ul>
+        <% errors.forEach(error => { %>
+        <li><%= error.msg %></li>
+        <% }) %>
+      </ul>
+      <% } %>
+    <div class="register-container">
+      <form class="form-container" method="post" action="/register">
+        <div class="user-register">
+          <label for="name">Nombre:</label>
+          <input type="text" class="borde_rojo input_texto input-register" name="name" id="" placeholder="Jhon" value="<%= typeof values != 'undefined' ? values.name : '' %>" />
+        </div>
+        <div class="user-register">
+          <label for="last-name">Apellido</label>
+          <input type="text" class="borde_rojo input_texto input-register" name="lastname" placeholder="Doe" value="<%= typeof values != 'undefined' ? values.lastname : '' %>" />
+        </div>
+        <div class="user-register">
+          <label for="Email">Email:</label>
+          <input type="text" class="borde_rojo input_texto input-register" name="email" id=""
+            placeholder="johndoe@correo.com" value="<%= typeof values != 'undefined' ? values.email : '' %>" />
+        </div>
+        <div class="password-register">
+          <label class="password-field" for="password">Contraseña:</label>
+          <input type="password" class="borde_rojo input_texto input-register" name="password" id="" placeholder="********"
+            value="" />
+        </div>
+        <br />
+        <br />
+        <div class="re-password-register">
+          <label for="re-password">Repetir Contraseña:</label>
+          <input type="password" class="borde_rojo input_texto input-register" name="password_repeat" id="" placeholder="********"
+            value="" />
+        </div>
+        <br />
+        <br />
+        <div class="sumit-container">
+          <input type="submit" class="boton_rojo" value="Registrar" />
+          <input type="checkbox" class="checkbox-register" value="" />
+          <p class="terms">
+            Acepto
+            <a href="terminos-y-condiciones.html" class="">
+              <span></span> Términos y Condiciones</a>
+          </p>
+        </div>
       </form>
     </div>
-  </body>
+  </main>
+  <%- include('../partials/footerAdmin') %>
+  <script src="../index.js"></script>
+</body>
+
 </html>
