@@ -1,141 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adm|Funkoshop</title>
-    <link rel="stylesheet" href="../../css/index.css">
-    <link rel="stylesheet" href="../../css/admin.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="../../css/admin.css" />
+  </head>
+  <body>
     <%- include('../../partials/headerAdmin') %>
-    <aside class="container">       
-        <img class="search " src="../../img/icons/search_icon.svg" alt="Lupa">
-        <input class="container placeholder" type="text " placeholder="codigo,nombre o categoria">
-        </nav>    
-    </aside>
+    <main class="main_list_products">
+      <aside class="container search_container">
+        <img class="search" src="/img/icons/search_icon.svg" alt="Lupa" />
+        <input
+          class="container placeholder"
+          type="text "
+          placeholder="codigo,nombre o categoria"
+        />
+      </aside>
+      <section class="container section">
+        <div class="title_section">
+          <h2 class="titulo">LISTADO DE PRODUCTOS</h2>
+          <p class="btn_agregar">AGREGAR <a href="/admin/products/create"><img src="/img/icons/mas.svg"></a></p>
+        </div>
+        <table class="table">
+          <thead>
+            <tr class="tr">
+              <th class="tr-th">ID</th>
+              <th>Codigo</th>
+              <th>Nombre del Producto</th>
+              <th>Categoria</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% products.forEach((product) => { %>
+                <tr class="tr">
+                    <td><%= product.id %></td>
+                    <td><%= product.SKU %></td>
+                  <td><%= product.nombre %></td>
+                  <td><%= product.Category.nombre %></td>
+                  <td><a href="/admin/products/edit/<%= product.id %>"><img src="../../img/icons/edit_pencil.svg" alt="" /></a></td>
+                  <td>
+                    <form
+                    class="form-delete"
+                    action="/admin/products/<%= product.id %>?_method=DELETE"
+                    method="post"
+                  >
+                    <button type="submit" class="btn_borrar"><img src="../../img/icons/delete_trash.svg" alt="" /></button>
+                  </form>
+                  </td>
+                  
+                </div>
+                <% }); %>
 
-    <main class=""></main>
-    <table class="container table">
-       <section class="container table section">
-       <h2 class="container titulo">LISTADO DE PRODUCTOS </h2>
-        <button class="">AGREGAR</button> 
-      </section>          
-            <thead>
-                <tr class="tr">
-                <th class="tr-th">ID</th>
-                <th>Codigo</th>
-                <th>Nombre del Producto</th>
-                <th>Categoria</th>
-                </tr>  
-            </thead>
-            <tbody>
-               <tr class="tr">
-                  <td>1</td>
-                  <td>STW001001</td>
-                  <td>Bady Yoda Blueball</td>
-                  <td>STARS WARS</td>
-                  <td><img src="../../img/icons/edit_pencil.svg" alt=""></td>
-                  <td><img src="../../img/icons/delete_trash.svg" alt=""></td>
-               </tr> 
-               <tr class="tr">
-                  <td>2</td>
-                  <td>STW001002</td>
-                  <td>Boba Fett Figther</td>
-                  <td>STARS WARS</td>
-                  <td><img src="../../img/icons/edit_pencil.svg" alt=""></td>
-                  <td><img src="../../img/icons/delete_trash.svg" alt=""></td>
-               </tr> 
-               <tr class="tr">
-                  <td>3</td>  
-                  <td>STW001003</td>
-                  <td>Luke Skylwalker & Grogu</td>
-                  <td>STARS WARS</td>
-                  <td><img src="../../img/icons/edit_pencil.svg" alt=""></td>
-                  <td><img src="../../img/icons/delete_trash.svg" alt=""></td>
-               </tr> 
-               <tr class="tr">
-                  <td>4</td>
-                  <td>STW001004</td>
-                  <td>Stormtrooper Lightsaber</td>
-                  <td>STARS WARS</td>
-                  <td><img src="../../img/icons/edit_pencil.svg" alt=""></td>
-                  <td><img src="../../img/icons/delete_trash.svg" alt=""></td>
-               </tr> 
-               <tr class="tr">
-                  <td>5</td>
-                  <td>PKM01001</td>
-                  <td>Charmander Smiley</td>
-                  <td>POKEMON</td>
-                  <td><img src="../../img/icons/edit_pencil.svg" alt=""></td>
-                  <td><img src="../../img/icons/delete_trash.svg" alt=""></td>
-               </tr> 
-               <tr class="tr">
-                  <td>6</td>
-                  <td>PKM01002</td>
-                  <td>Dragonite Hi!</td>
-                  <td>POKEMON</td>
-                  <td><img src="../../img/icons/edit_pencil.svg" alt=""></td>
-                  <td><img src="../../img/icons/delete_trash.svg" alt=""></td>
-                </tr> 
-                <tr class="tr">
-                  <td>7</td>
-                  <td>PKM01003</td>
-                  <td>Pidgeotto Flying</td>
-                  <td>POKEMON</td>
-                  <td><img src="../../img/icons/edit_pencil.svg" alt=""></td>
-                  <td><img src="../../img/icons/delete_trash.svg" alt=""></td>
-                </tr> 
-                <tr class="tr">
-                  <td>8</td>
-                  <td>PKM01004</td>
-                  <td>Pikachu Smiley</td>
-                  <td>POKEMON</td>
-                  <td><img src="../../img/icons/edit_pencil.svg" alt=""></td>
-                  <td><img src="../../img/icons/delete_trash.svg" alt=""></td>
-                </tr> 
-                <tr class="tr">
-                  <td>9</td>
-                  <td>PKM01005</td>
-                  <td>Vulpix Fancy</td>
-                  <td>POKEMON</td>
-                  <td><img src="../../img/icons/edit_pencil.svg" alt=""></td>
-                  <td><img src="../../img/icons/delete_trash.svg" alt=""></td>
-                </tr> 
-                <tr class="tr">
-                  <td>10</td>
-                  <td>HPT001001</td>
-                  <td>Harry Poter & Hegwid</td>
-                  <td>HARRY POTTERS</td>
-                  <td><img src="../../img/icons/edit_pencil.svg" alt=""></td>
-                  <td><img src="../../img/icons/delete_trash.svg" alt=""></td>
-                </tr> 
-                <tr class="tr">
-                  <td>11</td>
-                  <td>HPT001002</td>
-                  <td>Herminione Ball Dress</td>         
-                  <td>HARRY POTTERS</td>
-                  <td><img src="../../img/icons/edit_pencil.svg" alt=""></td>
-                  <td><img src="../../img/icons/delete_trash.svg" alt=""></td>
-                </tr> 
-                <tr class="tr">
-                  <td>12</td>
-                  <td>HPT001003</td>
-                  <td>Luna Lovegood Lion Mask</td>
-                  <td>HARRY POTTERS</td>
-                  <td><img src="../../img/icons/edit_pencil.svg" alt=""></td>
-                  <td><img src="../../img/icons/delete_trash.svg" alt=""></td>
-                </tr> 
-                <tr class="tr">
-                  <td>13</td>
-                  <td>HPT001004</td>
-                  <td>Snape Patronus</td>
-                  <td>HARRY POTTERS</td>
-                  <td><img src="../../img/icons/edit_pencil.svg" alt=""></td>
-                  <td><img src="../../img/icons/delete_trash.svg" alt=""></td>
-                </tr>                
-            </tbody>              
-    </table>
+            <tr class="tr">
+              <td>1</td>
+              <td>STW001001</td>
+              <td>Bady Yoda Blueball</td>
+              <td>STARS WARS</td>
+              <td><img src="../../img/icons/edit_pencil.svg" alt="" /></td>
+              <td><img src="../../img/icons/delete_trash.svg" alt="" /></td>
+            </tr>
+            <tr class="tr">
+              <td>2</td>
+              <td>STW001002</td>
+              <td>Boba Fett Figther</td>
+              <td>STARS WARS</td>
+              <td><img src="../../img/icons/edit_pencil.svg" alt="" /></td>
+              <td><img src="../../img/icons/delete_trash.svg" alt="" /></td>
+            </tr>
+            <tr class="tr">
+              <td>3</td>
+              <td>STW001003</td>
+              <td>Luke Skylwalker & Grogu</td>
+              <td>STARS WARS</td>
+              <td><img src="../../img/icons/edit_pencil.svg" alt="" /></td>
+              <td><img src="../../img/icons/delete_trash.svg" alt="" /></td>
+            </tr>
+            <tr class="tr">
+              <td>4</td>
+              <td>STW001004</td>
+              <td>Stormtrooper Lightsaber</td>
+              <td>STARS WARS</td>
+              <td><img src="../../img/icons/edit_pencil.svg" alt="" /></td>
+              <td><img src="../../img/icons/delete_trash.svg" alt="" /></td>
+            </tr>
+            <tr class="tr">
+              <td>5</td>
+              <td>PKM01001</td>
+              <td>Charmander Smiley</td>
+              <td>POKEMON</td>
+              <td><img src="../../img/icons/edit_pencil.svg" alt="" /></td>
+              <td><img src="../../img/icons/delete_trash.svg" alt="" /></td>
+            </tr>
+            <tr class="tr">
+              <td>6</td>
+              <td>PKM01002</td>
+              <td>Dragonite Hi!</td>
+              <td>POKEMON</td>
+              <td><img src="../../img/icons/edit_pencil.svg" alt="" /></td>
+              <td><img src="../../img/icons/delete_trash.svg" alt="" /></td>
+            </tr>
+            <tr class="tr">
+              <td>7</td>
+              <td>PKM01003</td>
+              <td>Pidgeotto Flying</td>
+              <td>POKEMON</td>
+              <td><img src="../../img/icons/edit_pencil.svg" alt="" /></td>
+              <td><img src="../../img/icons/delete_trash.svg" alt="" /></td>
+            </tr>
+            <tr class="tr">
+              <td>8</td>
+              <td>PKM01004</td>
+              <td>Pikachu Smiley</td>
+              <td>POKEMON</td>
+              <td><img src="../../img/icons/edit_pencil.svg" alt="" /></td>
+              <td><img src="../../img/icons/delete_trash.svg" alt="" /></td>
+            </tr>
+            <tr class="tr">
+              <td>9</td>
+              <td>PKM01005</td>
+              <td>Vulpix Fancy</td>
+              <td>POKEMON</td>
+              <td><img src="../../img/icons/edit_pencil.svg" alt="" /></td>
+              <td><img src="../../img/icons/delete_trash.svg" alt="" /></td>
+            </tr>
+            <tr class="tr">
+              <td>10</td>
+              <td>HPT001001</td>
+              <td>Harry Poter & Hegwid</td>
+              <td>HARRY POTTERS</td>
+              <td><img src="../../img/icons/edit_pencil.svg" alt="" /></td>
+              <td><img src="../../img/icons/delete_trash.svg" alt="" /></td>
+            </tr>
+            <tr class="tr">
+              <td>11</td>
+              <td>HPT001002</td>
+              <td>Herminione Ball Dress</td>
+              <td>HARRY POTTERS</td>
+              <td><img src="../../img/icons/edit_pencil.svg" alt="" /></td>
+              <td><img src="../../img/icons/delete_trash.svg" alt="" /></td>
+            </tr>
+            <tr class="tr">
+              <td>12</td>
+              <td>HPT001003</td>
+              <td>Luna Lovegood Lion Mask</td>
+              <td>HARRY POTTERS</td>
+              <td><img src="../../img/icons/edit_pencil.svg" alt="" /></td>
+              <td><img src="../../img/icons/delete_trash.svg" alt="" /></td>
+            </tr>
+            <tr class="tr">
+              <td>13</td>
+              <td>HPT001004</td>
+              <td>Snape Patronus</td>
+              <td>HARRY POTTERS</td>
+              <td><img src="../../img/icons/edit_pencil.svg" alt="" /></td>
+              <td><img src="../../img/icons/delete_trash.svg" alt="" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
     <%- include('../../partials/footerAdmin') %>
-</body>
+  </body>
 </html>
