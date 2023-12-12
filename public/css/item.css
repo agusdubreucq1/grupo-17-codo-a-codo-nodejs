@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
+  margin-top: var(--spacings-36);
 }
 
 .item_img img{
@@ -28,6 +29,7 @@
   font-weight: 500;
   line-height: 19px;
   letter-spacing: 0em;
+  text-transform: uppercase;
 }
 
 .articulo_titulo {
@@ -36,6 +38,7 @@
   font-weight: 700;
   line-height: 46px;
   letter-spacing: 0em;
+  text-transform: uppercase;
 }
 
 .articulo_descripcion {
