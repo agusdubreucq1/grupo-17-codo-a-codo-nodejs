@@ -126,6 +126,10 @@ header {
   max-width: 300px;
 }
 
+.logo-responsive{
+  display: none;
+}
+
 .navbar__link {
   /*efecto para pasar por encimada de los  link*/
   font-size: var(--font-medium);
@@ -289,6 +293,11 @@ header {
   margin: var(--spacings-68) auto;
 }
 
+.slider__item{
+  display: flex;
+  justify-content: center;
+}
+
 .slider__title {
   font-family: var(--alternative-font);
   font-size: var(--font-display);
@@ -312,6 +321,10 @@ iconify-icon {
 
 /* -------CARD-------- */
 
+.card-items{
+  width: 300px;
+}
+
 .card-item__cover {
   display: flex;
   position: relative;
@@ -329,6 +342,10 @@ iconify-icon {
 
 .card-item__cover img {
   animation: fade 1.7s; /*animacion*/
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  /* padding: 10px; */
 }
 
 .card-item__img--back {
@@ -339,7 +356,7 @@ iconify-icon {
   display: block;
 }
 
-.card-item__cover:hover .card-item__img--font {
+.card-item__cover:hover .card-item__img--front {
   display: none;
 }
 
@@ -348,16 +365,19 @@ iconify-icon {
   flex-direction: column;
   gap: var(--spacings-12);
   padding: var(--spacings-16);
+  justify-content: space-between;
 }
 
 .card-item__license {
   font-size: var(--font-xsmall);
   font-weight: 500;
+  text-transform: uppercase;
 }
 
 .card-item__name {
   font-size: var(--font-medium);
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 .card-item__price {
