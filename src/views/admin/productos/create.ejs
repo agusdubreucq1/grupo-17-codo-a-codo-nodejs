@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FunkoShop</title>
     <link rel="stylesheet" href="/css/index.css" />
-    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" href="/css/createProduct.css" />
     <link rel="stylesheet" href="/css/responsive.css" />
-    <link rel="stylesheet" href="/css/variables.css" />
     <link
       rel="shortcut icon"
       href="/img/branding/isotype.svg"
@@ -16,104 +15,113 @@
   </head>
   <body>
     <%- include('../../partials/headerAdmin') %>
-    <main class="main_edit">
-      <h1>CREAR NUEVO ITEM</h1>
-      <br />
-      <br />
-      <form 
-      method="post",
-    action="/admin/products/create"
-    enctype="multipart/form-data">
+    <main class="main_edit container">
+      <h1 class="title">CREAR NUEVO ITEM</h1>
+      <form
+        method="post"
+        action="/admin/products/create"
+        enctype="multipart/form-data"
+      >
         <div class="renglon1">
-          <label for="categoria">Categoria:</label>
-          <select name="categoria" id="categoria">
-            <option value="" disabled selected hidden>Seleccionar</option>
-            <% categorias.forEach((categoria)=>{ %>
-            <option value="<%= categoria.id %>"><%= categoria.nombre %></option>
-            <% }) %>
-          </select>
-          <label for="licencia">Licencia:</label>
-          <select name="licencia" id="licencia">
-            <option value="" disabled selected hidden>Seleccionar</option>
-            <% licencias.forEach((licencia)=>{ %>
+          <div class="select_categoria">
+            <label for="categoria">Categoria:</label>
+            <select name="categoria" id="categoria">
+              <option value="" disabled selected hidden>Seleccionar</option>
+              <% categorias.forEach((categoria)=>{ %>
+              <option value="<%= categoria.id %>">
+                <%= categoria.nombre %>
+              </option>
+              <% }) %>
+            </select>
+          </div>
+
+          <div class="select_licencia">
+            <label for="licencia">Licencia:</label>
+            <select name="licencia" id="licencia">
+              <option value="" disabled selected hidden>Seleccionar</option>
+              <% licencias.forEach((licencia)=>{ %>
               <option value="<%= licencia.id %>"><%= licencia.nombre %></option>
-         <% }) %>
-          </select>
+              <% }) %>
+            </select>
+          </div>
         </div>
-        <br />
-        <br />
-        <div class="renglon2">
+
+        <div class="container_nombre">
           <label for="">Nombre del producto:</label>
           <input
-            class="borde_rojo input_texto input_grande"
+            class="input_texto"
             placeholder="Kakashi Hatake Shippuden Saga"
             name="nombre"
           />
         </div>
-        <br />
-        <br />
-        <div class="3renglon">
+
+        <div class="renglon">
           <textarea
             name="descripcion"
             id=""
             placeholder="Descripción del producto"
           ></textarea>
         </div>
-        <br />
-        <br />
-        <div class="4renglon">
-          <label for="">SKU:</label>
-          <input
-            type="text"
-            class="borde_rojo input_texto input_mediano"
-            name="SKU"
-            id=""
-            placeholder="SSK111AB001"
-          />
-          <label for="">Precio:</label>
-          <input
-            type="number"
-            class="borde_rojo input_texto input_mediano"
-            placeholder="$ 0.000,00"
-            name="precio"
-          />
-          <label for="">Stock:</label>
-          <input
-            type="number"
-            class="borde_rojo input_texto input_chico"
-            placeholder="0"
-            name="stock"
-          />
+        <div class="renglon">
+          <div class="renglon__div">
+            <label for="">SKU:</label>
+            <input
+              type="text"
+              class="input_texto input_mediano"
+              name="SKU"
+              id=""
+              placeholder="SSK111AB001"
+            />
+          </div>
+
+          <div class="renglon__div">
+            <label for="">Precio:</label>
+            <input
+              type="number"
+              class="input_texto input_mediano"
+              placeholder="$ 0.000,00"
+              name="precio"
+            />
+          </div>
+
+          <div class="renglon__div">
+            <label for="">Stock:</label>
+            <input
+              type="number"
+              class="input_texto input_chico"
+              placeholder="0"
+              name="stock"
+            />
+          </div>
         </div>
-        <br />
-        <br />
-        <div class="5renglon">
-          <label for="">Descuento</label>
-          <input
-            type="number"
-            class="borde_rojo input_texto input_chico"
-            placeholder="0%"
-            name="descuento"
-          />
-          <label for="">Cuotas:</label>
+
+        <div class="renglon">
+          <div class="renglon__div">
+            <label for="">Descuento:</label>
+            <input
+              type="number"
+              class="input_texto input_chico"
+              placeholder="0%"
+              name="descuento"
+            />
+          </div>
+
+          <div class="renglon__div">
+            <label for="">Cuotas:</label>
           <select name="cuotas" id="">
-            <option value="3" selected>
-              3 Cuotas sin interes
-            </option>
+            <option value="3" selected>3 Cuotas sin interes</option>
             <option value="6">6 Cuotas sin interes</option>
             <option value="12">12 Cuotas sin interes</option>
             <option value="18">18 Cuotas sin interes</option>
           </select>
+          </div>
+          
         </div>
-        <br />
-        <br />
-        <div class="6renglon">
+        <div class="renglon">
           <label for="">Imagenes:</label>
           <input type="file" name="imagenes" id="" multiple />
         </div>
-        <br />
-        <br />
-        <div class="7renglon">
+        <div class="renglon">
           <input
             type="submit"
             class="boton_rojo"
