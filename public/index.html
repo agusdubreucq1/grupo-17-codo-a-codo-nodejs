@@ -175,6 +175,7 @@
 </footer> 
 
 <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <script src="/js/index.js" ></script>
 <script>
     new Glide('.glide',{
@@ -182,12 +183,12 @@
         startAt: 0,
         perView: 3,
         gap: 30,
-        breakpoint:{
+        breakpoints:{
             991:{
-                perView:2
+                perView:2,
             },
             768:{
-                perView:1
+                perView:1,
             }
         }
     }).mount();
