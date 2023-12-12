@@ -61,7 +61,12 @@ const mainController = {
 
     contact: (req, res)=> res.send("contact"),
     about: (req, res)=>res.send("about"),
-    faqs: (req, res)=>res.send("faqs")
+    faqs: (req, res)=>res.send("faqs"),
+
+    cart: (req, res)=>{
+        let logueado = (req.session?.userId ? true : false) ?? false;
+        res.render("public/cart", {logueado})
+    }
 }
 
 module.exports = mainController
