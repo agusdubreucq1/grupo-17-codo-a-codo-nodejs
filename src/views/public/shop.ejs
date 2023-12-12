@@ -12,7 +12,9 @@
 </head>
 
 <body>
-  <%- include('../partials/header') %>
+    <% if(logueado) { %>
+        <%- include('../partials/headerAdmin') %>
+        <% }else{ %> <%- include('../partials/header') %> <% } %>
 <div class="shop_all">
   <div class="container_shop container">
     <aside class="aside_shop">
@@ -103,7 +105,10 @@
       </section>
   </div>
 </div>
-<%- include('../partials/footer') %>
+<% if(logueado) { %>
+    <%- include('../partials/footerAdmin') %>
+    <% }else{ %> <%- include('../partials/footer') %> <% } %>
+
 <script src="/js/index.js"></script>
 </body>
 

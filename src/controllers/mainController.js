@@ -15,7 +15,8 @@ const mainController = {
                     model: Licencia,
                 }
             })
-            res.render("index", {products: products});
+            let logueado = (req.session?.userId ? true : false) ?? false;
+            res.render("index", {products: products, logueado});
         }catch(e){
             console.log(e)
             res.sendStatus(500).send(e)
@@ -29,7 +30,8 @@ const mainController = {
                     model: Licencia,
                 }
             })
-            res.render("public/shop", {products: products});
+            let logueado = (req.session?.userId ? true : false) ?? false
+            res.render("public/shop", {products: products, logueado});
         }catch(e){
             console.log(e)
             res.sendStatus(500).send(e)
@@ -46,8 +48,8 @@ const mainController = {
                 }
             })
             const product = products.find(producto=> producto.id === id);
-            console.log(product, products)
-            res.render("public/item", {product: product, products: products})
+            let logueado = (req.session?.userId ? true : false) ?? false;
+            res.render("public/item", {product: product, products: products, logueado})
 
         }catch(e){
             console.log(e)
