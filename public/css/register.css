@@ -27,6 +27,22 @@
 }
 
 .errores {
+  font-size: 20px;
+  padding: 40px;
+  border: 1px solid #f00;
+  border-radius: 10px;
+}
+
+.errores ul{
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.errores ul li{
+  text-align: center;
+  color: #ff3333;
 }
 
 .register-container {

@@ -32,6 +32,7 @@ const registerValidations = [
       minLength: 6,
       minLowercase: 1,
       minUppercase: 1,
+      minSymbols:0,
     })
     .withMessage(`La contraseña debe tener :
      -una mayuscula

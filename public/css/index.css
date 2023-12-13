@@ -330,6 +330,12 @@ iconify-icon {
   position: relative;
 }
 
+.card-item__link{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .card-item__tag {
   font-size: var(--font-xsmall);
   text-transform: uppercase;
@@ -366,6 +372,7 @@ iconify-icon {
   gap: var(--spacings-12);
   padding: var(--spacings-16);
   justify-content: space-between;
+  width: 100%;
 }
 
 .card-item__license {
