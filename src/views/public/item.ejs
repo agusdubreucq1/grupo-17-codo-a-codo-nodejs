@@ -27,7 +27,7 @@
     <% if(logueado) { %>
         <%- include('../partials/headerAdmin') %>
         <% }else{ %> <%- include('../partials/header') %> <% } %>
-    <main class="container">
+    <main class="container main_item">
       <section class="item_container">
         <picture class="item_img">
           <img
@@ -47,11 +47,11 @@
             <div class="rectangulo">
               <input type="number" value="0" class="input_stock" />
               <div class="signos">
-                <div class="mas">
-                  <img src="/img/icons/+.svg" alt="mas" srcset="" class="agregar"/>
+                <div class="mas agregar">
+                  <img src="/img/icons/+.svg" alt="mas" srcset="" class=""/>
                 </div>
-                <div class="menos">
-                  <img src="/img/icons/-.svg" alt="menos" srcset="" class="restar"/>
+                <div class="menos restar">
+                  <img src="/img/icons/-.svg" alt="menos" srcset="" class=""/>
                 </div>
               </div>
             </div>
