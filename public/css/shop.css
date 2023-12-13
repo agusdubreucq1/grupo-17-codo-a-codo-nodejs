@@ -161,12 +161,6 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-bottom: 40px;
 }
 
-/* .shop_paginas li {
-  display: flex;
-  gap: 8px;
-  list-style: none;
-} */
-
 .shop_paginas input {
   color: var(--gray-900);
   background-color: var(--light-bg-color);

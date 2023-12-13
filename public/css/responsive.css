@@ -1,5 +1,5 @@
 /* Media query para dispositivos móviles */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .menu-toggle {
       display: flex;
       margin: 50px;

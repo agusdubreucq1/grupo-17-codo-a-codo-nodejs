@@ -7,16 +7,13 @@
     <link rel="stylesheet" href="/css/index.css" />
     <link rel="stylesheet" href="/css/responsive.css" />
     <link rel="stylesheet" href="/css/carrito.css" />
-    <link
-      rel="shortcut icon"
-      href="/img/branding/isotype.svg"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="/img/branding/isotype.svg" type="image/x-icon" />
   </head>
 
   <body>
-    <% if(logueado) { %> <%- include('../partials/headerAdmin') %> <% }else{ %>
-    <%- include('../partials/header') %> <% } %>
+    <% if(logueado) { %> <%- include('../partials/headerAdmin') %> <% }else{ %> <%- include('../partials/header') %> <%
+    } %>
+    
     <main class="main_carrito">
       <h2 class="titulo_carrito">CARRITO DE COMPRAS</h2>
       <div class="titulo_lista">
@@ -28,10 +25,7 @@
       <section class="contenedor_producto">
         <div class="cart_producto">
           <picture class="cart_img">
-            <img
-              src="/img/star-wars/baby-yoda-1.webp"
-              alt="Figura coleccionable Funko de la serie The Mandalorian"
-            />
+            <img src="/img/star-wars/baby-yoda-1.webp" alt="Figura coleccionable Funko de la serie The Mandalorian" />
           </picture>
           <div class="cart_detalle">
             <h2>BABY YODA BLUEBALL</h2>
@@ -91,9 +85,7 @@
             <div class="carrito__resumen__linea">
               <div class="carrito__resumen__contenedor">
                 <div class="carrito__resumen__titulo">
-                  <p class="p_resumen_col1">
-                    ----------------------------------------------------
-                  </p>
+                  <p class="p_resumen_col1">----------------------------------------------------</p>
                 </div>
               </div>
             </div>
@@ -109,19 +101,15 @@
             </div>
           </div>
           <div class="carrito__resumen_boton">
-            <button
-              type="button"
-              class="btn btn-primary btn-sm d-block d-sm-none d-sm-block d-md-none"
-              id="submit"
-            >
+            <button type="button" class="btn btn-primary btn-sm d-block d-sm-none d-sm-block d-md-none" id="submit">
               IR APAGAR
             </button>
           </div>
         </div>
       </div>
     </main>
-    <% if(logueado) { %> <%- include('../partials/footerAdmin') %> <% }else{ %>
-    <%- include('../partials/footer') %> <% } %>
+    <% if(logueado) { %> <%- include('../partials/footerAdmin') %> <% }else{ %> <%- include('../partials/footer') %> <%
+    } %>
     <script src="/js/index.js"></script>
   </body>
 </html>

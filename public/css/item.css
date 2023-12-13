@@ -1,9 +1,13 @@
+.main_item{
+  margin: var(--spacings-36);
+}
+
 .item_container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
-  margin-top: var(--spacings-36);
+  gap: 20px;
 }
 
 .item_img img{
@@ -129,3 +133,64 @@ input[type="number"]::-webkit-outer-spin-button {
   line-height: 22px;
   letter-spacing: 0em;
 }
+
+@media screen and (width < 950px) {
+  .item_img img{
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media screen and (width < 750px) {
+  .item_container{
+    grid-template-columns: 1fr;
+  }
+
+  .item_img{
+    display: flex;
+    justify-content: center;
+  }
+
+  .articulo_franquicia {
+    font-size: 10px;
+    line-height: 12.5px;
+  }
+  
+  .articulo_titulo {
+    font-size: 25px;
+    line-height: 30px;
+  }
+  
+  .articulo_descripcion {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  
+  .articulo_precio {
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  .slider__title{
+    font-size: 30px;
+  }
+
+}
+
+@media screen and (width < 450px){
+  .item_img img{
+    width: 300px;
+    height: 300px;
+  }
+
+  .botones{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .boton_rojo{
+    width: 180px;
+    height: 38px;
+  }
+}
+
