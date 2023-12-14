@@ -237,8 +237,12 @@ header {
 
 /*---------COLECCIONES-------*/
 
+.main-container{
+  margin: auto 20px;
+}
+
 .collection {
-  display: flex;
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   padding: var(--spacings-16) 0;
@@ -415,4 +419,41 @@ iconify-icon {
 .footer__copy {
   text-align: center;
   margin-top: var(--spacings-36);
+}
+
+@media screen and (width < 750px) {
+
+  .hero{
+    padding: 40px 16px;
+  }
+
+  .hero__content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .collection{
+    grid-template-columns: 1fr;
+  }
+
+  .collection .collection__cover {
+    order: -1;
+    width: 300px;
+  }
+
+  .collection__title {
+    font-size: 30px;
+  }
+  
+  .collection__text {
+    font-size: 16px;
+  }
+
+  .slider__title{
+    font-size: 30px;
+  }
+
+  .collection__content{
+    margin: 0 20px;
+  }
 }

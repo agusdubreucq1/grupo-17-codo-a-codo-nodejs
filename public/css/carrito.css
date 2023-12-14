@@ -48,6 +48,7 @@
 
 .item_carrito {
   padding: 38px 0;
+  position: relative;
 }
 
 .cart_producto {
@@ -234,19 +235,18 @@
 }
 
 @media screen and (width < 700px) {
+  .titulo_carrito {
+    font-size: 30px;
+    line-height: 36px;
+    padding-bottom: 8px;
+    border-bottom: 4px solid #ff3333;
+  }
 
-.titulo_carrito {
-  font-size: 30px;
-  line-height: 36px;
-  padding-bottom: 8px;
-  border-bottom: 4px solid #ff3333;
-}
-
-.titulo_lista p{
-  font-size: 10px;
-  line-height: 12px;
-  padding: 10px 0;
-}
+  .titulo_lista p {
+    font-size: 10px;
+    line-height: 12px;
+    padding: 10px 0;
+  }
   .cart_img img {
     width: 80px;
     height: 80px;
@@ -295,50 +295,79 @@
   /* resumen */
 
   .resumen-title {
-  font-size: 30px;
-  line-height: 36px;
-}
+    font-size: 30px;
+    line-height: 36px;
+  }
 
-.resumen__detalles {
-  padding: 16px;
-  gap: 12px;
-}
+  .resumen__detalles {
+    padding: 16px;
+    gap: 12px;
+  }
 
-.item-detalles {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  width: 380px;
-}
+  .item-detalles {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    width: 380px;
+  }
 
-.item-detalles__key {
-  font-size: 10px;
-  line-height: 12px;
-}
+  .item-detalles__key {
+    font-size: 10px;
+    line-height: 12px;
+  }
 
-.item-detalles__value {
-  font-size: 10px;
-  line-height: 12px;
-}
+  .item-detalles__value {
+    font-size: 10px;
+    line-height: 12px;
+  }
 
-.total {
-  border-top: 2px solid #ff3333;
-  padding-top: 8px;
-}
+  .total {
+    border-top: 2px solid #ff3333;
+    padding-top: 8px;
+  }
 
-.total > p:first-child {
-  font-size: 13px;
-  line-height: 16px;
-}
+  .total > p:first-child {
+    font-size: 13px;
+    line-height: 16px;
+  }
 
-.boton_rojo {
-  height: 45px;
+  .boton_rojo {
+    height: 45px;
 
-  font-size: 21px;
-  line-height: 26px;
-}
+    font-size: 21px;
+    line-height: 26px;
+  }
 }
 
 @media screen and (width < 550px) {
+  .titulo_lista {
+    display: none !important;
+  }
+
+  .contenedor_producto > div {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .cart_eliminar img {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+/* RESUMEN */
+  
+  .resumen__detalles {
+    padding: 8px;
+    gap: 12px;
+    width: 280px;
+  }
+  
+  .item-detalles {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+
   
 }
