@@ -17,6 +17,17 @@
     <%- include('../../partials/headerAdmin') %>
     <main class="main_edit container">
       <h1 class="title">CREAR NUEVO ITEM</h1>
+
+      <% if (typeof errors != 'undefined') { %>
+        <div class="errores">
+          <ul>
+            <% errors.forEach(error => { %>
+            <li><%= error.msg %></li>
+            <% }) %>
+          </ul>
+        </div>
+        <% } %>
+
       <form
         method="post"
         action="/admin/products/create"
@@ -28,7 +39,7 @@
             <select name="categoria" id="categoria">
               <option value="" disabled selected hidden>Seleccionar</option>
               <% categorias.forEach((categoria)=>{ %>
-              <option value="<%= categoria.id %>">
+              <option value="<%= categoria.id %>" <%=  typeof values != 'undefined' && values.categoria == categoria.id  ? 'selected' : '' %>>
                 <%= categoria.nombre %>
               </option>
               <% }) %>
@@ -40,7 +51,7 @@
             <select name="licencia" id="licencia">
               <option value="" disabled selected hidden>Seleccionar</option>
               <% licencias.forEach((licencia)=>{ %>
-              <option value="<%= licencia.id %>"><%= licencia.nombre %></option>
+              <option value="<%= licencia.id %>" <%=  typeof values != 'undefined' && values.licencia == licencia.id  ? 'selected' : '' %>><%= licencia.nombre %></option>
               <% }) %>
             </select>
           </div>
@@ -52,6 +63,7 @@
             class="input_texto"
             placeholder="Kakashi Hatake Shippuden Saga"
             name="nombre"
+            value="<%= typeof values != 'undefined' ? values.nombre : '' %>"
           />
         </div>
 
@@ -60,6 +72,7 @@
             name="descripcion"
             id=""
             placeholder="Descripción del producto"
+            value="<%= typeof values != 'undefined' ? values.descripcion : '' %>"
           ></textarea>
         </div>
         <div class="renglon">
@@ -70,6 +83,7 @@
               class="input_texto input_mediano"
               name="SKU"
               id=""
+              value="<%= typeof values != 'undefined' ? values.SKU : '' %>"
               placeholder="SSK111AB001"
             />
           </div>
@@ -81,6 +95,7 @@
               class="input_texto input_mediano"
               placeholder="$ 0.000,00"
               name="precio"
+              value="<%= typeof values != 'undefined' ? values.precio : '' %>"
             />
           </div>
 
@@ -91,6 +106,7 @@
               class="input_texto input_chico"
               placeholder="0"
               name="stock"
+              value="<%= typeof values != 'undefined' ? values.stock : '' %>"
             />
           </div>
         </div>
@@ -103,16 +119,17 @@
               class="input_texto input_chico"
               placeholder="0%"
               name="descuento"
+              value="<%= typeof values != 'undefined' ? values.descuento : '' %>"
             />
           </div>
 
           <div class="renglon__div">
             <label for="">Cuotas:</label>
           <select name="cuotas" id="">
-            <option value="3" selected>3 Cuotas sin interes</option>
-            <option value="6">6 Cuotas sin interes</option>
-            <option value="12">12 Cuotas sin interes</option>
-            <option value="18">18 Cuotas sin interes</option>
+            <option value="3" <%=  typeof values != 'undefined' && values.cuotas == 3  ? 'selected' : '' %>>3 Cuotas sin interes</option>
+            <option value="6" <%=  typeof values != 'undefined' && values.cuotas == 6  ? 'selected' : '' %>>6 Cuotas sin interes</option>
+            <option value="12" <%=  typeof values != 'undefined' && values.cuotas == 12  ? 'selected' : '' %>>12 Cuotas sin interes</option>
+            <option value="18" <%=  typeof values != 'undefined' && values.cuotas == 18  ? 'selected' : '' %>>18 Cuotas sin interes</option>
           </select>
           </div>
           
