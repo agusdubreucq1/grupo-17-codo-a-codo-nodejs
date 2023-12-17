@@ -57,7 +57,7 @@
             <input
               class="input_texto input_grande"
               placeholder="Escribe norma del producto"
-              value="<%= product.nombre %>"
+              value="<%= typeof values != 'undefined' ? values.nombre : product.nombre %>"
               name="nombre"
             />
           </div>
@@ -75,7 +75,7 @@
               class="input_texto input_mediano"
               name="SKU"
               placeholder="SSK111AB001"
-              value="<%= product.SKU %>"
+              value="<%= typeof values != 'undefined' ? values.SKU : product.SKU %>"
             />
           </div>
 
@@ -85,7 +85,7 @@
               type="number"
               class=input_texto input_mediano"
               placeholder="$ 0.000,00"
-              value="<%= product.precio %>"
+              value="<%= typeof values != 'undefined' ? values.precio : product.precio %>"
               name="precio"
             />
           </div>
@@ -96,7 +96,7 @@
               type="number"
               class="input_texto input_chico"
               placeholder="0"
-              value="<%= product.stock %>"
+              value="<%= typeof values != 'undefined' ? values.stock : product.stock %>"
               name="stock"
             />
           </div>
@@ -109,7 +109,7 @@
               type="number"
               class="input_texto input_chico"
               placeholder="0%"
-              value="<%= product.descuento %>"
+              value="<%= typeof values != 'undefined' ? values.descuento : product.descuento %>"
               name="descuento"
             />
           </div>

@@ -13,7 +13,7 @@ router.get('/create', productController.getCreate)
 router.post('/create', upload.array('imagenes', 2),formValidations, productController.create)
 
 router.get('/edit/:id', productController.getEdit)
-router.put('/:id', formValidations, upload.array('imagenes', 2), productController.edit)
+router.put('/:id', upload.array('imagenes', 2), formValidations, productController.edit)
 
 router.delete('/:id', productController.delete)
 
