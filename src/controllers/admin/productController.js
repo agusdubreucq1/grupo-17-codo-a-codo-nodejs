@@ -4,7 +4,8 @@ const Producto = require("../../models/producto");
 
 const sharp = require("sharp");
 const path = require("path");
-const fs = require("node:fs")
+const fs = require("node:fs");
+const { validationResult } = require("express-validator");
 
 const productController = {
   index: async (req, res) => {
@@ -24,6 +25,26 @@ const productController = {
     }
   },
   create: async (req, res) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      console.log(errors)
+      try {
+        const categorias = await Categoria.findAll();
+        const licencias = await Licencia.findAll();
+        res.render("admin/productos/create", {
+          categorias: categorias,
+          licencias: licencias,
+          errors: errors.array(),
+          values: req.body
+        });
+      } catch (e) {
+        console.log(e);
+        res.send(e);
+      }
+      return;
+    }
+
     const {
       nombre,
       descripcion,
@@ -111,7 +132,38 @@ const productController = {
     }
   },
   edit: async (req, res) => {
+    const errors = validationResult(req);
     const { id } = req.params;
+
+    if (!errors.isEmpty()) {
+      try {
+        const product = await Producto.findOne({
+          include: [
+            {
+              model: Categoria,
+            },
+          ],
+          where: {
+            id: id,
+          },
+        });
+        const categorias = await Categoria.findAll();
+        const licencias = await Licencia.findAll();
+        res.render("admin/productos/edit", {
+          product: product,
+          categorias: categorias,
+          licencias: licencias,
+          errors: errors.array(),
+          values: req.body
+        });
+      } catch (e) {
+        console.log(e);
+        res.send("error al editar");
+      }
+      return;
+    }
+
+    
     const {
       nombre,
       precio,
